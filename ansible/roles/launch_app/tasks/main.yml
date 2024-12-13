@@ -1,9 +1,8 @@
 - name: Launch App Container
   community.docker.docker_container:
     name: app_container
-    image: myapp:latest
-    env:
-      APP_ENV: production
-      DATABASE_URL: postgres://dbuser:dbpassword@db_container:5432/mydatabase
+    image: martin16006/tp-devops-simple-api
     networks:
-      - name: my_app_network
+      - name: my_network
+  vars:
+    ansible_python_interpreter: /opt/docker_venv/bin/python3

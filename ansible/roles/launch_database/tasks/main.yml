@@ -1,10 +1,8 @@
 - name: Launch Database Container
   community.docker.docker_container:
-    name: db_container
-    image: postgres:latest
-    env:
-      POSTGRES_USER: dbuser
-      POSTGRES_PASSWORD: dbpassword
-      POSTGRES_DB: mydatabase
+    name: my-db
+    image: martin16006/tp-devops-database
     networks:
-      - name: my_app_network
+      - name: my_network
+  vars:
+    ansible_python_interpreter: /opt/docker_venv/bin/python3
